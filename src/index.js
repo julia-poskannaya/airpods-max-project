@@ -1,11 +1,17 @@
+import html from './index.html';
 import './index.css';
+import './img/image2.jpg';
+import './img/image4.jpg';
+import './img/logo.svg';
+import './img/menu.svg';
+import './img/user.svg';
 
 window.addEventListener('DOMContentLoaded', () => {
     
     //Form
     const form = document.querySelector('form'),
-    sucsess = document.querySelector('.form__okMessage'),
-    failed = document.querySelector('.form__failMessage');
+    sucsess = document.querySelector('.form__ok-message'),
+    failed = document.querySelector('.form__fail-message');
     const baseURL = 'https://jsonplaceholder.typicode.com';
 
     function postData(url, data){

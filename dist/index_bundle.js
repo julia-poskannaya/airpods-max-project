@@ -2,6 +2,93 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _index_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.html */ "./src/index.html");
+/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.css */ "./src/index.css");
+/* harmony import */ var _img_image2_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./img/image2.jpg */ "./src/img/image2.jpg");
+/* harmony import */ var _img_image4_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./img/image4.jpg */ "./src/img/image4.jpg");
+/* harmony import */ var _img_logo_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./img/logo.svg */ "./src/img/logo.svg");
+/* harmony import */ var _img_menu_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./img/menu.svg */ "./src/img/menu.svg");
+/* harmony import */ var _img_user_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./img/user.svg */ "./src/img/user.svg");
+
+
+
+
+
+
+
+window.addEventListener('DOMContentLoaded', function () {
+  //Form
+  var form = document.querySelector('form'),
+      sucsess = document.querySelector('.form__ok-message'),
+      failed = document.querySelector('.form__fail-message');
+  var baseURL = 'https://jsonplaceholder.typicode.com';
+
+  function postData(url, data) {
+    return fetch("".concat(url, "/posts"), {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: data
+    });
+  }
+
+  function showMessage() {
+    form.classList.toggle('hide');
+    sucsess.classList.toggle('hide');
+    setTimeout(function () {
+      form.classList.toggle('hide');
+      sucsess.classList.toggle('hide');
+    }, 3000);
+  }
+
+  function showFailed() {
+    form.classList.toggle('hide');
+    failed.classList.toggle('hide');
+    setTimeout(function () {
+      form.classList.toggle('hide');
+      failed.classList.toggle('hide');
+    }, 4000);
+  }
+
+  function bindData(form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var formData = new FormData(form);
+      var json = JSON.stringify(Object.fromEntries(formData.entries()));
+      postData(baseURL, json).then(function (response) {
+        return checkResponse(response);
+      }).then(function (response) {
+        console.log(response);
+        showMessage();
+      })["catch"](function () {
+        return showFailed();
+      })["finally"](function () {
+        return form.reset();
+      });
+    });
+  }
+
+  function checkResponse(response) {
+    if (!response.ok) {
+      throw new Error("Somethig wrong. Error: ".concat(response.status));
+    } else {
+      return response.json();
+    }
+  }
+
+  bindData(form);
+});
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/blocks/advantages-wrapper/__advantage/advantages-wrapper__advantage.css":
 /*!***************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/blocks/advantages-wrapper/__advantage/advantages-wrapper__advantage.css ***!
@@ -391,7 +478,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".form__okMessage, .form__failMessage{\r\n    display: flex;\r\n    text-align: center;\r\n    align-items: center;\r\n    max-width: 500px;\r\n    height: 230px;\r\n    background-color: #030305;\r\n    color: #FFFFFF;\r\n    border-radius: 35px;\r\n    font-size: 30px;\r\n    font-weight: 500;\r\n}", "",{"version":3,"sources":["webpack://./src/blocks/form/__message/form__message.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,kBAAkB;IAClB,mBAAmB;IACnB,gBAAgB;IAChB,aAAa;IACb,yBAAyB;IACzB,cAAc;IACd,mBAAmB;IACnB,eAAe;IACf,gBAAgB;AACpB","sourcesContent":[".form__okMessage, .form__failMessage{\r\n    display: flex;\r\n    text-align: center;\r\n    align-items: center;\r\n    max-width: 500px;\r\n    height: 230px;\r\n    background-color: #030305;\r\n    color: #FFFFFF;\r\n    border-radius: 35px;\r\n    font-size: 30px;\r\n    font-weight: 500;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".form__ok-message, .form__fail-message{\r\n    display: flex;\r\n    text-align: center;\r\n    align-items: center;\r\n    max-width: 500px;\r\n    height: 230px;\r\n    background-color: #030305;\r\n    color: #FFFFFF;\r\n    border-radius: 35px;\r\n    font-size: 30px;\r\n    font-weight: 500;\r\n}", "",{"version":3,"sources":["webpack://./src/blocks/form/__message/form__message.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,kBAAkB;IAClB,mBAAmB;IACnB,gBAAgB;IAChB,aAAa;IACb,yBAAyB;IACzB,cAAc;IACd,mBAAmB;IACnB,eAAe;IACf,gBAAgB;AACpB","sourcesContent":[".form__ok-message, .form__fail-message{\r\n    display: flex;\r\n    text-align: center;\r\n    align-items: center;\r\n    max-width: 500px;\r\n    height: 230px;\r\n    background-color: #030305;\r\n    color: #FFFFFF;\r\n    border-radius: 35px;\r\n    font-size: 30px;\r\n    font-weight: 500;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1264,6 +1351,72 @@ module.exports = function (url, options) {
 
 /***/ }),
 
+/***/ "./src/index.html":
+/*!************************!*\
+  !*** ./src/index.html ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/html-loader/dist/runtime/getUrl.js */ "./node_modules/html-loader/dist/runtime/getUrl.js");
+/* harmony import */ var _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___HTML_LOADER_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ./index.css */ "./src/index.css"), __webpack_require__.b);
+var ___HTML_LOADER_IMPORT_1___ = new URL(/* asset import */ __webpack_require__(/*! ./img/logo.svg */ "./src/img/logo.svg"), __webpack_require__.b);
+var ___HTML_LOADER_IMPORT_2___ = new URL(/* asset import */ __webpack_require__(/*! ./img/image2.jpg */ "./src/img/image2.jpg"), __webpack_require__.b);
+var ___HTML_LOADER_IMPORT_3___ = new URL(/* asset import */ __webpack_require__(/*! ./img/image4.jpg */ "./src/img/image4.jpg"), __webpack_require__.b);
+var ___HTML_LOADER_IMPORT_4___ = new URL(/* asset import */ __webpack_require__(/*! ./index.js */ "./src/index.js"), __webpack_require__.b);
+// Module
+var ___HTML_LOADER_REPLACEMENT_0___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_0___);
+var ___HTML_LOADER_REPLACEMENT_1___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_1___);
+var ___HTML_LOADER_REPLACEMENT_2___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_2___);
+var ___HTML_LOADER_REPLACEMENT_3___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_3___);
+var ___HTML_LOADER_REPLACEMENT_4___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_4___);
+var code = "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <link rel=\"stylesheet\" href=\"" + ___HTML_LOADER_REPLACEMENT_0___ + "\">\r\n    <title>AirPodsMax</title>\r\n</head>\r\n<body>\r\n    <header class=\"header\">\r\n        <div class=\"container-header\">\r\n            <a class =\"logo\" href=\"index.html\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_1___ + "\" alt=\"logo\"></a>\r\n            <nav class=\"nav\">\r\n                <ul class=\"menu\">\r\n                    <li class=\"menu-item\"><a class=\"menu__links\" href=\"index.html\">Главная</a></li>\r\n                    <li class=\"menu-item\"><a class=\"menu__links\" href=\"#advantages\">Преимущества</a></li>\r\n                    <li class=\"menu-item\"><a class=\"menu__links\" href=\"#checkout\">Предзаказ</a></li>\r\n                </ul>\r\n            </nav>\r\n    \r\n            <div class=\"user\">\r\n                <span class=\"user__name\">User</span>\r\n                <div class=\"user__avatar\"></div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"burger-menu\"></div>\r\n    </header>\r\n\r\n    <div class=\"first-screen\" >\r\n        <div class=\"container\">\r\n            <div class=\"info\">\r\n                <span class=\"info__label\">Apple</span>\r\n                <h1 class=\"info__title\">AirPods Max</h1>\r\n                <p class=\"info__description\">AirPods Max — это совершенно новый взгляд на полноразмерные наушники. Все элементы AirPods Max, от амбушюров до оголовья, спроектированы таким образом, чтобы наушники оптимально прилегали к голове любой формы. Благодаря этому достигается невероятное качество и богатство звука.</p>\r\n                <div class=\"buttons\">\r\n                    <a href=\"#advantages\" class=\"buttons__button\">Подробнее</a>\r\n                    <a href=\"#checkout\" class=\"buttons__button\">Оформить заказ</a>\r\n                </div>\r\n            </div>\r\n            \r\n            <img class=\"first-screen__image\" src=\"" + ___HTML_LOADER_REPLACEMENT_2___ + "\" alt=\"Наушники\">\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"second-screen\" id=\"advantages\">\r\n        <div class=\"container\">\r\n                <img class=\"second-screen__image\" src=\"" + ___HTML_LOADER_REPLACEMENT_3___ + "\" alt=\"Гарнитура\">\r\n                <div class=\"advantages-wrapper\">\r\n                    <p class=\"advantages-wrapper__advantage\">Звук высокой четкости</p>\r\n                    <p class=\"advantages-wrapper__advantage\">Активное шумоподавление</p>\r\n                    <p class=\"advantages-wrapper__advantage\">Технология пространственного аудио</p>\r\n                </div>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"third-screen\" id=\"checkout\">\r\n        <div class=\"third-screen-container\">\r\n            <h2 class=\"third-screen__title\">Оформи предзаказ</h2>\r\n            <form class=\"form\" action=\"#\" method=\"POST\">\r\n                <input class=\"form__field\" type=\"text\" name=\"userName\" placeholder=\"Имя\">\r\n                <input class=\"form__field\" type=\"number\" name=\"phoneNumber\" placeholder=\"+375 (___) ___-__-__\">\r\n                <input class=\"form__field\" type=\"email\" name=\"email\" placeholder=\"E-mail\">\r\n                <input class=\"form__submit\" type=\"submit\" name=\"sendData\" value=\"Оформить предзаказ\">\r\n            </form>\r\n\r\n            <div class=\"form__ok-message hide\">Спасибо! Мы скоро свяжемся с вами.</div>\r\n            <div class=\"form__fail-message hide\">Что-то пошло не так. Попробуйте ввести данные снова.</div>\r\n        </div>\r\n    </div>\r\n\r\n    <footer class=\"footer\">\r\n        <div class=\"container-footer\">\r\n            <a class=\"logo\" href=\"index.html\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_1___ + "\" alt=\"logo\"></a>\r\n            <p class=\"footer__rights\">Все права защищены, 2021</p>\r\n        </div>\r\n    </footer>\r\n\r\n    <script src=\"" + ___HTML_LOADER_REPLACEMENT_4___ + "\"></script>\r\n</body>\r\n</html>";
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (code);
+
+/***/ }),
+
+/***/ "./node_modules/html-loader/dist/runtime/getUrl.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/html-loader/dist/runtime/getUrl.js ***!
+  \*********************************************************/
+/***/ ((module) => {
+
+
+
+module.exports = function (url, options) {
+  if (!options) {
+    // eslint-disable-next-line no-param-reassign
+    options = {};
+  }
+
+  if (!url) {
+    return url;
+  } // eslint-disable-next-line no-underscore-dangle, no-param-reassign
+
+
+  url = String(url.__esModule ? url.default : url);
+
+  if (options.hash) {
+    // eslint-disable-next-line no-param-reassign
+    url += options.hash;
+  }
+
+  if (options.maybeNeedQuotes && /[\t\n\f\r "'=<>`]/.test(url)) {
+    return "\"".concat(url, "\"");
+  }
+
+  return url;
+};
+
+/***/ }),
+
 /***/ "./src/index.css":
 /*!***********************!*\
   !*** ./src/index.css ***!
@@ -1556,13 +1709,43 @@ module.exports = domAPI;
 
 /***/ }),
 
+/***/ "./src/img/image2.jpg":
+/*!****************************!*\
+  !*** ./src/img/image2.jpg ***!
+  \****************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "images/85f2397505229c835803.jpg";
+
+/***/ }),
+
+/***/ "./src/img/image4.jpg":
+/*!****************************!*\
+  !*** ./src/img/image4.jpg ***!
+  \****************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "images/7a6ddcbcca8d6b520787.jpg";
+
+/***/ }),
+
+/***/ "./src/img/logo.svg":
+/*!**************************!*\
+  !*** ./src/img/logo.svg ***!
+  \**************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "images/e4f62af8678126e06c1d.svg";
+
+/***/ }),
+
 /***/ "./src/img/menu.svg":
 /*!**************************!*\
   !*** ./src/img/menu.svg ***!
   \**************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "icons/9478d825e83e5bd5f0d5.svg";
+module.exports = __webpack_require__.p + "images/9478d825e83e5bd5f0d5.svg";
 
 /***/ }),
 
@@ -1572,7 +1755,7 @@ module.exports = __webpack_require__.p + "icons/9478d825e83e5bd5f0d5.svg";
   \**************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "icons/85994bf01cbba8c23ae0.svg";
+module.exports = __webpack_require__.p + "images/85994bf01cbba8c23ae0.svg";
 
 /***/ }),
 
@@ -1662,6 +1845,9 @@ module.exports = __webpack_require__.p + "fonts/d9179683aac83cc7bf68.woff2";
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -1735,81 +1921,39 @@ module.exports = __webpack_require__.p + "fonts/d9179683aac83cc7bf68.woff2";
 /******/ 		__webpack_require__.p = scriptUrl;
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		__webpack_require__.b = document.baseURI || self.location.href;
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"main": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		// no on chunks loaded
+/******/ 		
+/******/ 		// no jsonp function
+/******/ 	})();
+/******/ 	
 /************************************************************************/
-var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
-(() => {
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.css */ "./src/index.css");
-
-window.addEventListener('DOMContentLoaded', function () {
-  //Form
-  var form = document.querySelector('form'),
-      sucsess = document.querySelector('.form__okMessage'),
-      failed = document.querySelector('.form__failMessage');
-  var baseURL = 'https://jsonplaceholder.typicode.com';
-
-  function postData(url, data) {
-    return fetch("".concat(url, "/posts"), {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: data
-    });
-  }
-
-  function showMessage() {
-    form.classList.toggle('hide');
-    sucsess.classList.toggle('hide');
-    setTimeout(function () {
-      form.classList.toggle('hide');
-      sucsess.classList.toggle('hide');
-    }, 3000);
-  }
-
-  function showFailed() {
-    form.classList.toggle('hide');
-    failed.classList.toggle('hide');
-    setTimeout(function () {
-      form.classList.toggle('hide');
-      failed.classList.toggle('hide');
-    }, 4000);
-  }
-
-  function bindData(form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var formData = new FormData(form);
-      var json = JSON.stringify(Object.fromEntries(formData.entries()));
-      postData(baseURL, json).then(function (response) {
-        return checkResponse(response);
-      }).then(function (response) {
-        console.log(response);
-        showMessage();
-      })["catch"](function () {
-        return showFailed();
-      })["finally"](function () {
-        return form.reset();
-      });
-    });
-  }
-
-  function checkResponse(response) {
-    if (!response.ok) {
-      throw new Error("Somethig wrong. Error: ".concat(response.status));
-    } else {
-      return response.json();
-    }
-  }
-
-  bindData(form);
-});
-})();
-
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module is referenced by other modules so it can't be inlined
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
+/******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=bundle.js.map
+//# sourceMappingURL=index_bundle.js.map

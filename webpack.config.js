@@ -1,13 +1,22 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
   entry: './src/index.js',
   output: {
-    filename: 'bundle.js',
+    filename: 'index_bundle.js',
     path: path.resolve(__dirname, 'dist'),
     assetModuleFilename: 'assets/[hash][ext]',
   },
+
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'AirPodsMax',
+      filename: 'page.html',
+      template: './src/index.html',
+    }),
+  ],
 
   watch: true,
 
@@ -15,6 +24,11 @@ module.exports = {
 
   module: {
     rules: [
+      {
+        test: /\.html$/i,
+        loader: 'html-loader',
+      },
+
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
@@ -24,7 +38,7 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'icons/[hash][ext]',
+          filename: 'images/[hash][ext]',
         }
       },
 
@@ -45,9 +59,7 @@ module.exports = {
             presets: ['@babel/preset-env']
           }
         }
-      },
-
-      
+      }, 
     ],
   },
 };

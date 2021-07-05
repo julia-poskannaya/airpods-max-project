@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>AirPodsMax</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container-header">
+            <a class ="logo" href="index.html"><img src="./img/logo.svg" alt="logo"></a>
+            <nav class="nav">
+                <ul class="menu">
+                    <li class="menu-item"><a class="menu__links" href="index.html">Главная</a></li>
+                    <li class="menu-item"><a class="menu__links" href="#advantages">Преимущества</a></li>
+                    <li class="menu-item"><a class="menu__links" href="#checkout">Предзаказ</a></li>
+                </ul>
+            </nav>
+    
+            <div class="user">
+                <span class="user__name">User</span>
+                <div class="user__avatar"></div>
+            </div>
+        </div>
+
+        <div class="burger-menu"></div>
+    </header>
+
+    <div class="first-screen" >
+        <div class="container">
+            <div class="info">
+                <span class="info__label">Apple</span>
+                <h1 class="info__title">AirPods Max</h1>
+                <p class="info__description">AirPods Max — это совершенно новый взгляд на полноразмерные наушники. Все элементы AirPods Max, от амбушюров до оголовья, спроектированы таким образом, чтобы наушники оптимально прилегали к голове любой формы. Благодаря этому достигается невероятное качество и богатство звука.</p>
+                <div class="buttons">
+                    <a href="#advantages" class="buttons__button">Подробнее</a>
+                    <a href="#checkout" class="buttons__button">Оформить заказ</a>
+                </div>
+            </div>
+            
+            <img class="first-screen__image" src="./img/image2.jpg" alt="Наушники">
+        </div>
+    </div>
+
+    <div class="second-screen" id="advantages">
+        <div class="container">
+                <img class="second-screen__image" src="./img/image4.jpg" alt="Гарнитура">
+                <div class="advantages-wrapper">
+                    <p class="advantages-wrapper__advantage">Звук высокой четкости</p>
+                    <p class="advantages-wrapper__advantage">Активное шумоподавление</p>
+                    <p class="advantages-wrapper__advantage">Технология пространственного аудио</p>
+                </div>
+        </div>
+    </div>
+
+    <div class="third-screen" id="checkout">
+        <div class="third-screen-container">
+            <h2 class="third-screen__title">Оформи предзаказ</h2>
+            <form class="form" action="#" method="POST">
+                <input class="form__field" type="text" name="userName" placeholder="Имя">
+                <input class="form__field" type="number" name="phoneNumber" placeholder="+375 (___) ___-__-__">
+                <input class="form__field" type="email" name="email" placeholder="E-mail">
+                <input class="form__submit" type="submit" name="sendData" value="Оформить предзаказ">
+            </form>
+
+            <div class="form__ok-message hide">Спасибо! Мы скоро свяжемся с вами.</div>
+            <div class="form__fail-message hide">Что-то пошло не так. Попробуйте ввести данные снова.</div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container-footer">
+            <a class="logo" href="index.html"><img src="./img/logo.svg" alt="logo"></a>
+            <p class="footer__rights">Все права защищены, 2021</p>
+        </div>
+    </footer>
+
+    <script src="./index.js"></script>
+</body>
+</html>

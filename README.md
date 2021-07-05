@@ -1,7 +1,5 @@
 # Проект: AirPods Max
 
-[Проект на github-pages](https://julia-poskannaya.github.io/react-posts-page/)
-
 ## Описание проекта:
 
 Landing-page с описанием наушников AirPods Max и возможностью их предзаказа.  
