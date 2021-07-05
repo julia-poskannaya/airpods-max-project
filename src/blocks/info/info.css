@@ -1,0 +1,23 @@
+.info{
+    max-width: 588px;
+}
+
+@media screen and (max-width:1199px){
+    .info{
+        max-width: 549px;
+    }
+}
+
+@media screen and (max-width:1009px){
+    .info{
+        max-width: 494px;
+    }
+}
+
+@media screen and (max-width:800px){
+    .info{
+       display: flex;
+       flex-direction: column;
+       text-align: center;
+    }
+}

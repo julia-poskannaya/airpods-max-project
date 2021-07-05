@@ -1,0 +1,10 @@
+.menu{
+    display: flex;  
+}
+
+@media  screen and (max-width:677px) {
+    .menu{
+        display: none;  
+    }
+    
+}

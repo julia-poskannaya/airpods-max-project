@@ -1,0 +1,13 @@
+.menu-item{
+    list-style: none;
+}
+
+.menu-item:not(:last-child){
+    padding-right: 97px;
+}
+
+@media screen and (max-width: 800px){
+    .menu-item:not(:last-child){
+        padding-right: 50px;
+    }
+}

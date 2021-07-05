@@ -1,0 +1,11 @@
+.second-screen__image{
+    width: 42%;
+    display: block;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 800px){
+    .second-screen__image{
+        width: 55%;
+    }
+}

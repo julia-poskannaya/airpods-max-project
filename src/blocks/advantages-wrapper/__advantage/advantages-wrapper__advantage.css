@@ -1,0 +1,11 @@
+.advantages-wrapper__advantage{
+    font-size: 30px;
+    font-weight: 400;
+    color: #000000;
+}
+
+@media screen and (max-width:1199px){
+    .advantages-wrapper__advantage{
+        font-size: 25px;
+    }
+}

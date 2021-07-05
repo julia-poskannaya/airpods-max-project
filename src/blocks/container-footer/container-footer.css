@@ -1,0 +1,14 @@
+.container-footer{
+    height: 79px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    max-width: 1200px;
+}
+
+@media screen and (max-width:1200px){
+    .container-footer{
+        max-width: 90%;
+    }
+}

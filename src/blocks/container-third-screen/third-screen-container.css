@@ -1,0 +1,14 @@
+.third-screen-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: auto;
+    max-width: 1200px;
+}
+
+@media screen and (max-width:1200px){
+    .third-screen-container{
+        max-width: 90%;
+    }
+}

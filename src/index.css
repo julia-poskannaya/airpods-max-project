@@ -1,0 +1,58 @@
+@import url('../src/vendors/normalize.css');
+@import url('../src/vendors/fonts/fonts.css');
+
+@import url('../src/blocks/advantages-wrapper/advantage-wrapper.css');
+@import url('../src/blocks/advantages-wrapper/__advantage/advantages-wrapper__advantage.css');
+
+@import url('../src/blocks/container-footer/container-footer.css');
+@import url('../src/blocks/container-header/container-header.css');
+@import url('../src/blocks/container/container.css');
+
+@import url('../src/blocks/first-screen/first-screen.css');
+@import url('../src/blocks/first-screen/__image/first-screen__image.css');
+
+@import url('../src/blocks/footer/footer.css');
+@import url('../src/blocks/footer/__rights/footer__rights.css');
+
+@import url('../src/blocks/form/__field/form__field.css');
+@import url('../src/blocks/form/__message/form__message.css');
+@import url('../src/blocks/form/__submit/form-submit.css');
+@import url('../src/blocks/form/form.css');
+
+@import url('../src/blocks/header/header.css');
+
+@import url('../src/blocks/hide/hide.css');
+
+@import url('../src/blocks/buttons/buttons.css');
+@import url('../src/blocks/buttons/buttons__button.css/buttons__button.css');
+
+@import url('../src/blocks/info/__describtion/info__describtion.css');
+@import url('../src/blocks/info/__label/info-label.css');
+@import url('../src/blocks/info/__title/info__title.css');
+@import url('../src/blocks/info/info.css');
+
+@import url('../src/blocks/menu/__menu-item/__menu-item.css');
+@import url('../src/blocks/menu/__menu-links/__menu-links.css');
+@import url('../src/blocks/menu/menu.css');
+
+@import url('../src/blocks/second-screen/second-screen.css');
+@import url('../src/blocks/second-screen/second-screen__image/second-screen__image.css');
+
+@import url('../src/blocks/show/show.css');
+
+@import url('../src/blocks/third-screen/__title/third-screen__title.css');
+@import url('../src/blocks/third-screen/third-screen.css');
+
+@import url('../src/blocks/user/__avatar/user__avatar.css');
+@import url('../src/blocks/user/__name/user__name.css');
+@import url('../src/blocks/user/user.css');
+
+@import url('../src/blocks/container-third-screen/third-screen-container.css');
+
+@import url('../src/blocks/burger-menu/burger-menu.css');
+
+
+
+
+
+

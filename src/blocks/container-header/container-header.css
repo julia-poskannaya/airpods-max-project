@@ -1,0 +1,14 @@
+.container-header{
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+    max-width: 1200px;
+}
+
+@media screen and (max-width:1200px){
+    .container-header{
+        max-width: 90%;
+    }
+}

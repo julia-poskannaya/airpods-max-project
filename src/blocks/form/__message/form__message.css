@@ -1,0 +1,12 @@
+.form__okMessage, .form__failMessage{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    max-width: 500px;
+    height: 230px;
+    background-color: #030305;
+    color: #FFFFFF;
+    border-radius: 35px;
+    font-size: 30px;
+    font-weight: 500;
+}

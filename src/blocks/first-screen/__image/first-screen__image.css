@@ -1,0 +1,12 @@
+.first-screen__image{
+    width: 43%;
+    display: block;
+    object-fit: cover;
+}
+
+@media screen and (max-width:800px){
+    .first-screen__image{
+        position: relative;
+        top: 80px;
+    }
+}

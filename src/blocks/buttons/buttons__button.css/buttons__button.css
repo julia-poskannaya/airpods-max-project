@@ -1,0 +1,25 @@
+.buttons__button{
+    color: #030305;
+    padding: 20px 45px;
+    border: 1px solid #030305;
+    border-radius: 50px;
+    font-size: 17px;
+    font-weight: 500;  
+    margin-right: 5px;
+}
+
+.buttons__button:hover, .buttons__button:active{
+    color: white;
+    background-color: #030305;
+    transition: 0.5s;
+}
+
+@media screen and (max-width:800px){
+    .buttons__button {
+        text-align: center;
+        font-size: 22px;
+        padding: 30px 45px;
+        margin-right: 0;
+    }
+}
+
