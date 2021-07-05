@@ -13,7 +13,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'AirPodsMax',
-      filename: 'page.html',
+      filename: 'index.html',
       template: './src/index.html',
     }),
   ],
