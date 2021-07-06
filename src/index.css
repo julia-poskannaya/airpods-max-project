@@ -35,6 +35,8 @@
 @import url('../src/blocks/menu/__menu-links/__menu-links.css');
 @import url('../src/blocks/menu/menu.css');
 
+@import url('../src/blocks/nav/nav.css');
+
 @import url('../src/blocks/second-screen/second-screen.css');
 @import url('../src/blocks/second-screen/second-screen__image/second-screen__image.css');
 
