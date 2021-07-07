@@ -7,6 +7,30 @@ import './img/menu.svg';
 import './img/user.svg';
 
 window.addEventListener('DOMContentLoaded', () => {
+    //Scroll
+    function scrollPage(selector) {
+        const items = document.querySelectorAll(selector);
+        items.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+        
+                let href = item.getAttribute('href').substring(1);
+                const anchor = document.getElementById(href);
+
+                const top = 0;
+                const elementPosition = anchor.getBoundingClientRect().top;
+                const offsetPosition = elementPosition - top;
+        
+                window.scrollBy({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    }
+
+    scrollPage('.menu__links');
+    scrollPage('.buttons__button');
     
     //Form
     const form = document.querySelector('form'),
@@ -24,24 +48,14 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function showMessage(){
-        form.classList.toggle('hide');
-        sucsess.classList.toggle('hide');
+    function showMessage(formSelector, classSelector){
+        formSelector.classList.toggle('hide');
+        classSelector.classList.toggle('hide');
         setTimeout(() => {
-            form.classList.toggle('hide');
-            sucsess.classList.toggle('hide'); 
+            formSelector.classList.toggle('hide');
+            classSelector.classList.toggle('hide'); 
         }, 3000);
     }
-
-    function showFailed(){
-        form.classList.toggle('hide');
-        failed.classList.toggle('hide');
-        setTimeout(() => {
-            form.classList.toggle('hide');
-            failed.classList.toggle('hide'); 
-        }, 4000);
-    }
-
 
     function bindData(form){
         form.addEventListener('submit', (e) => {
@@ -54,9 +68,9 @@ window.addEventListener('DOMContentLoaded', () => {
             .then(response => checkResponse(response))
             .then(response => {
                 console.log(response);
-                showMessage();
+                showMessage(form, sucsess);
             })
-            .catch(() => showFailed())
+            .catch(() => showMessage(form, failed))
             .finally(() => form.reset());
         });
     }

@@ -24,7 +24,28 @@ __webpack_require__.r(__webpack_exports__);
 
 
 window.addEventListener('DOMContentLoaded', function () {
-  //Form
+  //Scroll
+  function scrollPage(selector) {
+    var items = document.querySelectorAll(selector);
+    items.forEach(function (item) {
+      item.addEventListener('click', function (e) {
+        e.preventDefault();
+        var href = item.getAttribute('href').substring(1);
+        var anchor = document.getElementById(href);
+        var top = 0;
+        var elementPosition = anchor.getBoundingClientRect().top;
+        var offsetPosition = elementPosition - top;
+        window.scrollBy({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      });
+    });
+  }
+
+  scrollPage('.menu__links');
+  scrollPage('.buttons__button'); //Form
+
   var form = document.querySelector('form'),
       sucsess = document.querySelector('.form__ok-message'),
       failed = document.querySelector('.form__fail-message');
@@ -40,22 +61,13 @@ window.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  function showMessage() {
-    form.classList.toggle('hide');
-    sucsess.classList.toggle('hide');
+  function showMessage(formSelector, classSelector) {
+    formSelector.classList.toggle('hide');
+    classSelector.classList.toggle('hide');
     setTimeout(function () {
-      form.classList.toggle('hide');
-      sucsess.classList.toggle('hide');
+      formSelector.classList.toggle('hide');
+      classSelector.classList.toggle('hide');
     }, 3000);
-  }
-
-  function showFailed() {
-    form.classList.toggle('hide');
-    failed.classList.toggle('hide');
-    setTimeout(function () {
-      form.classList.toggle('hide');
-      failed.classList.toggle('hide');
-    }, 4000);
   }
 
   function bindData(form) {
@@ -67,9 +79,9 @@ window.addEventListener('DOMContentLoaded', function () {
         return checkResponse(response);
       }).then(function (response) {
         console.log(response);
-        showMessage();
+        showMessage(form, sucsess);
       })["catch"](function () {
-        return showFailed();
+        return showMessage(form, failed);
       })["finally"](function () {
         return form.reset();
       });
@@ -1405,7 +1417,7 @@ var ___HTML_LOADER_REPLACEMENT_1___ = _node_modules_html_loader_dist_runtime_get
 var ___HTML_LOADER_REPLACEMENT_2___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_2___);
 var ___HTML_LOADER_REPLACEMENT_3___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_3___);
 var ___HTML_LOADER_REPLACEMENT_4___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_4___);
-var code = "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <link rel=\"stylesheet\" href=\"" + ___HTML_LOADER_REPLACEMENT_0___ + "\">\r\n    <title>AirPodsMax</title>\r\n</head>\r\n<body>\r\n    <header class=\"header\">\r\n        <div class=\"container-header\">\r\n            <a class =\"logo\" href=\"index.html\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_1___ + "\" alt=\"logo\"></a>\r\n            <nav class=\"nav\">\r\n                <ul class=\"menu\">\r\n                    <li class=\"menu-item\"><a class=\"menu__links\" href=\"index.html\">Главная</a></li>\r\n                    <li class=\"menu-item\"><a class=\"menu__links\" href=\"#advantages\">Преимущества</a></li>\r\n                    <li class=\"menu-item\"><a class=\"menu__links\" href=\"#checkout\">Предзаказ</a></li>\r\n                </ul>\r\n\r\n                <div class=\"burger-menu\"></div>\r\n            </nav>\r\n    \r\n            <div class=\"user\">\r\n                <span class=\"user__name\">User</span>\r\n                <div class=\"user__avatar\"></div>\r\n            </div>\r\n        </div>\r\n\r\n        \r\n    </header>\r\n\r\n    <div class=\"first-screen\" >\r\n        <div class=\"container\">\r\n            <div class=\"info\">\r\n                <span class=\"info__label\">Apple</span>\r\n                <h1 class=\"info__title\">AirPods Max</h1>\r\n                <p class=\"info__description\">AirPods Max — это совершенно новый взгляд на полноразмерные наушники. Все элементы AirPods Max, от амбушюров до оголовья, спроектированы таким образом, чтобы наушники оптимально прилегали к голове любой формы. Благодаря этому достигается невероятное качество и богатство звука.</p>\r\n                <div class=\"buttons\">\r\n                    <a href=\"#advantages\" class=\"buttons__button\">Подробнее</a>\r\n                    <a href=\"#checkout\" class=\"buttons__button\">Оформить заказ</a>\r\n                </div>\r\n            </div>\r\n            \r\n            <img class=\"first-screen__image\" src=\"" + ___HTML_LOADER_REPLACEMENT_2___ + "\" alt=\"Наушники\">\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"second-screen\" id=\"advantages\">\r\n        <div class=\"container\">\r\n                <img class=\"second-screen__image\" src=\"" + ___HTML_LOADER_REPLACEMENT_3___ + "\" alt=\"Гарнитура\">\r\n                <div class=\"advantages-wrapper\">\r\n                    <p class=\"advantages-wrapper__advantage\">Звук высокой четкости</p>\r\n                    <p class=\"advantages-wrapper__advantage\">Активное шумоподавление</p>\r\n                    <p class=\"advantages-wrapper__advantage\">Технология пространственного аудио</p>\r\n                </div>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"third-screen\" id=\"checkout\">\r\n        <div class=\"third-screen-container\">\r\n            <h2 class=\"third-screen__title\">Оформи предзаказ</h2>\r\n            <form class=\"form\" action=\"#\" method=\"POST\">\r\n                <input class=\"form__field\" type=\"text\" name=\"userName\" placeholder=\"Имя\">\r\n                <input class=\"form__field\" type=\"number\" name=\"phoneNumber\" placeholder=\"+375 (___) ___-__-__\">\r\n                <input class=\"form__field\" type=\"email\" name=\"email\" placeholder=\"E-mail\">\r\n                <input class=\"form__submit\" type=\"submit\" name=\"sendData\" value=\"Оформить предзаказ\">\r\n            </form>\r\n\r\n            <div class=\"form__ok-message hide\">Спасибо! Мы скоро свяжемся с вами.</div>\r\n            <div class=\"form__fail-message hide\">Что-то пошло не так. Попробуйте ввести данные снова.</div>\r\n        </div>\r\n    </div>\r\n\r\n    <footer class=\"footer\">\r\n        <div class=\"container-footer\">\r\n            <a class=\"logo\" href=\"index.html\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_1___ + "\" alt=\"logo\"></a>\r\n            <p class=\"footer__rights\">Все права защищены, 2021</p>\r\n        </div>\r\n    </footer>\r\n\r\n    <script src=\"" + ___HTML_LOADER_REPLACEMENT_4___ + "\"></script>\r\n</body>\r\n</html>";
+var code = "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <link rel=\"stylesheet\" href=\"" + ___HTML_LOADER_REPLACEMENT_0___ + "\">\r\n    <title>AirPodsMax</title>\r\n</head>\r\n<body id=\"main\">\r\n    <header class=\"header\">\r\n        <div class=\"container-header\">\r\n            <a class =\"logo\" href=\"index.html\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_1___ + "\" alt=\"logo\"></a>\r\n            <nav class=\"nav\">\r\n                <ul class=\"menu\">\r\n                    <li class=\"menu-item\"><a class=\"menu__links\" href=\"#main\">Главная</a></li>\r\n                    <li class=\"menu-item\"><a class=\"menu__links\" href=\"#advantages\">Преимущества</a></li>\r\n                    <li class=\"menu-item\"><a class=\"menu__links\" href=\"#checkout\">Предзаказ</a></li>\r\n                </ul>\r\n\r\n                <div class=\"burger-menu\"></div>\r\n            </nav>\r\n    \r\n            <div class=\"user\">\r\n                <span class=\"user__name\">User</span>\r\n                <div class=\"user__avatar\"></div>\r\n            </div>\r\n        </div>\r\n\r\n        \r\n    </header>\r\n\r\n    <div class=\"first-screen\" id=\"main\" >\r\n        <div class=\"container\">\r\n            <div class=\"info\">\r\n                <span class=\"info__label\">Apple</span>\r\n                <h1 class=\"info__title\">AirPods Max</h1>\r\n                <p class=\"info__description\">AirPods Max — это совершенно новый взгляд на полноразмерные наушники. Все элементы AirPods Max, от амбушюров до оголовья, спроектированы таким образом, чтобы наушники оптимально прилегали к голове любой формы. Благодаря этому достигается невероятное качество и богатство звука.</p>\r\n                <div class=\"buttons\">\r\n                    <a href=\"#advantages\" class=\"buttons__button\">Подробнее</a>\r\n                    <a href=\"#checkout\" class=\"buttons__button\">Оформить заказ</a>\r\n                </div>\r\n            </div>\r\n            \r\n            <img class=\"first-screen__image\" src=\"" + ___HTML_LOADER_REPLACEMENT_2___ + "\" alt=\"Наушники\">\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"second-screen\" id=\"advantages\">\r\n        <div class=\"container\">\r\n                <img class=\"second-screen__image\" src=\"" + ___HTML_LOADER_REPLACEMENT_3___ + "\" alt=\"Гарнитура\">\r\n                <div class=\"advantages-wrapper\">\r\n                    <p class=\"advantages-wrapper__advantage\">Звук высокой четкости</p>\r\n                    <p class=\"advantages-wrapper__advantage\">Активное шумоподавление</p>\r\n                    <p class=\"advantages-wrapper__advantage\">Технология пространственного аудио</p>\r\n                </div>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"third-screen\" id=\"checkout\">\r\n        <div class=\"third-screen-container\">\r\n            <h2 class=\"third-screen__title\">Оформи предзаказ</h2>\r\n            <form class=\"form\" action=\"#\" method=\"POST\">\r\n                <input class=\"form__field\" type=\"text\" name=\"userName\" placeholder=\"Имя\">\r\n                <input class=\"form__field\" type=\"number\" name=\"phoneNumber\" placeholder=\"+375 (___) ___-__-__\">\r\n                <input class=\"form__field\" type=\"email\" name=\"email\" placeholder=\"E-mail\">\r\n                <input class=\"form__submit\" type=\"submit\" name=\"sendData\" value=\"Оформить предзаказ\">\r\n            </form>\r\n\r\n            <div class=\"form__ok-message hide\">Спасибо! Мы скоро свяжемся с вами.</div>\r\n            <div class=\"form__fail-message hide\">Что-то пошло не так. Попробуйте ввести данные снова.</div>\r\n        </div>\r\n    </div>\r\n\r\n    <footer class=\"footer\">\r\n        <div class=\"container-footer\">\r\n            <a class=\"logo\" href=\"index.html\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_1___ + "\" alt=\"logo\"></a>\r\n            <p class=\"footer__rights\">Все права защищены, 2021</p>\r\n        </div>\r\n    </footer>\r\n\r\n    <script src=\"" + ___HTML_LOADER_REPLACEMENT_4___ + "\"></script>\r\n</body>\r\n</html>";
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (code);
 
