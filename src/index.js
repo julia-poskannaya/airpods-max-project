@@ -7,31 +7,7 @@ import './img/menu.svg';
 import './img/user.svg';
 
 window.addEventListener('DOMContentLoaded', () => {
-    //Scroll
-    function scrollPage(selector) {
-        const items = document.querySelectorAll(selector);
-        items.forEach(item => {
-            item.addEventListener('click', (e) => {
-                e.preventDefault();
-        
-                let href = item.getAttribute('href').substring(1);
-                const anchor = document.getElementById(href);
-
-                const top = 0;
-                const elementPosition = anchor.getBoundingClientRect().top;
-                const offsetPosition = elementPosition - top;
-        
-                window.scrollBy({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            });
-        });
-    }
-
-    scrollPage('.menu__links');
-    scrollPage('.buttons__button');
-    
+      
     //Form
     const form = document.querySelector('form'),
     sucsess = document.querySelector('.form__ok-message'),
